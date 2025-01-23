@@ -31,8 +31,8 @@ def expression(a, op, b):
     return exp
 
 def process_file(input_file_name, config):
-    print(f"process_file() input_file_name: {input_file_name}")
     output_file_name = config.OUTPUT_DIR + '/' + os.path.basename(input_file_name) + '.out'
+    print(f"process_file() input_file_name: {input_file_name} output_file_name: {output_file_name}")
     with open(input_file_name, 'r') as i, open(output_file_name, 'w') as o:
         while line := i.readline():
             a = line.rstrip()
@@ -48,11 +48,10 @@ if __name__ == "__main__":
     config = Config()
     print(f"main() config: {config}")
 
-    input_files = [
-        f.path
-        for f in os.scandir(config.INPUT_DIR)
-        if f.is_file()
-    ]
+    directory_scan = [f for f in os.scandir(config.INPUT_DIR)]
+    print(f"main() directory_scan: {directory_scan}")
+
+    input_files = [ f.path for f in directory_scan if f.is_file() ]
     print(f"main() input_files: {input_files}")
 
     for input_file in input_files:

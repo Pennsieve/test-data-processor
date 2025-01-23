@@ -29,3 +29,11 @@ class Config:
         self.FUNCTION             = os.getenv('FUNCTION', 'none')
         self.OPERATOR             = os.getenv('OPERATOR')
         self.OPERAND              = os.getenv('OPERAND')
+
+    def __str__(self):
+        return f"ENVIRONMENT: {self.ENVIRONMENT} INPUT_DIR: {self.INPUT_DIR} OUTPUT_DIR: {self.OUTPUT_DIR} " + \
+                f"WORKFLOW_INSTANCE_ID: {self.WORKFLOW_INSTANCE_ID} " + \
+                f"API_KEY: {self.API_KEY} API_SECRET: {self.API_SECRET} API_HOST: {self.API_HOST} " + \
+                f"API_HOST2: {self.API_HOST2} " + \
+                f"FUNCTION: {self.FUNCTION} OPERATOR: {self.OPERATOR} OPERAND: {self.OPERAND}"
+
